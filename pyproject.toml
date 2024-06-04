@@ -1,0 +1,75 @@
+[build-system]
+requires = ["setuptools >= 61.0", "setuptools_scm >= 8.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "laplace-skorch"
+requires-python = ">= 3.11"
+dependencies = [
+    "numpy >= 1.26, < 2",
+    "pandas >= 2.2, < 3",
+    "torch >= 2.3, < 3",
+    "skorch >= 0.15.0, < 0.16",
+    "laplace-torch @ git+https://github.com/AlexImmer/Laplace.git#7af7e30",
+]
+dynamic = ["version"]
+
+[project.optional-dependencies]
+dev = ["mypy >= 1.10", "ruff >= 0.4.4", "pandas-stubs >= 2.2, < 3"]
+
+[tool.setuptools_scm]
+# Extract Python package versions from git.
+# https://setuptools-scm.readthedocs.io/en/latest/
+
+[tool.mypy]
+# Static type checker for Python.
+# https://mypy.readthedocs.io/en/stable/
+
+# Comma-separated list of paths which should be checked by mypy.
+files = "src/"
+
+# Specifies the Python version used to parse and check the target program.
+python_version = "3.11"
+
+# Disallows defining functions without type annotations or with incomplete type
+# annotations.
+disallow_untyped_defs = true
+
+# Warns about casting an expression to its inferred type.
+warn_redundant_casts = true
+
+# Warns about unneeded `# type: ignore` comments.
+warn_unused_ignores = true
+
+# Shows a warning when encountering any code inferred to be unreachable or redundant
+# after performing type analysis.
+warn_unreachable = true
+
+# Allows variables to be redefined with an arbitrary type, as long as the redefinition
+# is in the same block and nesting level as the original definition.
+allow_redefinition = true
+
+# Use visually nicer output in error messages: use soft word wrap, show source code
+# snippets, and show error location markers.
+pretty = true
+
+[tool.ruff]
+# An extremely fast Python linter, written in Rust.
+# https://beta.ruff.rs/docs/settings/
+
+# A list of rule codes or prefixes to enable, in addition to those specified by
+# `select`. See https://beta.ruff.rs/docs/rules/ for supported rules.
+lint.extend-select = ["B", "UP", "SIM", "RUF", "I"]
+
+# The line length to use when enforcing long-lines violations (like `E501`).
+line-length = 88
+
+# The minimum Python version to target, e.g., when considering automatic code upgrades,
+# like rewriting type annotations.
+target-version = "py311"
+
+[[tool.mypy.overrides]]
+module = ["asdl.*", "laplace.*", "scipy.*", "sklearn.*", "skorch.*"]
+
+# Suppresses error messages about imports that cannot be resolved.
+ignore_missing_imports = true
