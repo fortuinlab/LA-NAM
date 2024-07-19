@@ -107,5 +107,5 @@ def powerset(s: Sequence[int]) -> Iterable[tuple[int, ...]]:
     """Iterable powerset of a `Sequence[int]` (skipping the empty set)."""
 
     return itertools.chain.from_iterable(
-        itertools.combinations(s, r) for r in range(1, len(s) + 1)
+        itertools.combinations(sorted(s), r) for r in range(1, len(s) + 1)
     )

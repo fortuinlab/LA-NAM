@@ -4,18 +4,26 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "laplace-skorch"
+authors = [{ name = "Kouroche Bouchiat" }]
 requires-python = ">= 3.11"
 dependencies = [
     "numpy >= 1.26, < 2",
     "pandas >= 2.2, < 3",
     "torch >= 2.3, < 3",
     "skorch >= 0.15.0, < 0.16",
-    "laplace-torch @ git+https://github.com/AlexImmer/Laplace.git#7af7e30",
+    "laplace-torch @ git+https://github.com/AlexImmer/Laplace.git@508843d",
 ]
 dynamic = ["version"]
 
 [project.optional-dependencies]
 dev = ["mypy >= 1.10", "ruff >= 0.4.4", "pandas-stubs >= 2.2, < 3"]
+
+[tool.setuptools]
+# Setuptools is designed to facilitate packaging Python projects.
+# https://setuptools.pypa.io/en/latest/
+
+# Include the data files inside the package directory.
+package-data = { "laplace_skorch" = ["py.typed"] }
 
 [tool.setuptools_scm]
 # Extract Python package versions from git.
@@ -69,7 +77,7 @@ line-length = 88
 target-version = "py311"
 
 [[tool.mypy.overrides]]
-module = ["asdl.*", "laplace.*", "scipy.*", "sklearn.*", "skorch.*"]
+module = ["asdl.*", "scipy.*", "sklearn.*", "skorch.*"]
 
 # Suppresses error messages about imports that cannot be resolved.
 ignore_missing_imports = true

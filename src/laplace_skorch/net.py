@@ -451,7 +451,9 @@ class LaplaceAdditiveNetMixin(LaplaceNetMixin):
         if (X := self._X_ref_()) is None or self._y_ref_() is None:
             raise RuntimeError("Broken weak reference to `X` or `y`.")
 
-        self.column_transformer_ = ColumnTransformer(_transformers_from_dataframe(X))
+        self.column_transformer_ = ColumnTransformer(
+            _transformers_from_dataframe(X), verbose_feature_names_out=False
+        )
         return self
 
     def initialized_instance(
@@ -515,9 +517,9 @@ def _transformers_from_dataframe(
     transformers = []
 
     for column_name, column in cast(Iterable[tuple[str | int, pd.Series]], X.items()):
-        if column.dtype in [np.int32, np.int64, np.float32, np.float64]:
+        if column.dtype in [np.float32, np.float64]:
             transformers.append((str(column_name), StandardScaler(), [column_name]))
-        elif column.dtype in [bool, object, "category"]:
+        elif column.dtype in [np.int32, np.int64, bool, object, "category"]:
             transformers.append((str(column_name), OrdinalEncoder(), [column_name]))
         else:
             raise ValueError(
@@ -539,9 +541,9 @@ def _modules_from_dataframe(
     modules = {}
 
     for column_pos, (column_name, column) in enumerate(X.items()):
-        if column.dtype in [np.int32, np.int64, np.float32, np.float64]:
+        if column.dtype in [np.float32, np.float64]:
             modules[column_pos] = Numerical(in_features=1, out_features=1, **kwargs)
-        elif column.dtype in [bool, object, "category"]:
+        elif column.dtype in [np.int32, np.int64, bool, object, "category"]:
             num_classes = len(column.unique())
 
             modules[column_pos] = Categorical(num_classes, out_features=1)
