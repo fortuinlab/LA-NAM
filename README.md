@@ -223,7 +223,7 @@ These are also supported:
 
 ```python
 display = LaplaceAdditivePartialDependenceDisplay.from_estimator(
-    net, X, features=["humidity", "feel_temp"]
+    net, X, features=["month", "temp"]
 )
 ...
 ```
