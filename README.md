@@ -7,7 +7,7 @@ Official implementation of Laplace-approximated neural additive models (LA-NAMs)
 >
 > ETH Zürich, TU Munich and Helmholtz AI
 
-[Improving Neural Additive Models with Bayesian Principles]: https://arxiv.org/abs/2305.16905
+[Improving Neural Additive Models with Bayesian Principles]: https://proceedings.mlr.press/v235/bouchiat24a.html
 [Kouroche Bouchiat]: https://bouchi.at/
 [Alexander Immer]: https://aleximmer.github.io/
 [Hugo Yèche]: https://bmi.inf.ethz.ch/people/person/hugo-yeche
@@ -240,11 +240,12 @@ See the LICENSE file for details.
 If you use LA-NAMs in your work, please consider citing as follows:
 
 ```bibtex
-@misc{bouchiat2024improving,
-  title         = {Improving {{Neural Additive Models}} with {{Bayesian Principles}}},
-  author        = {Kouroche Bouchiat and Alexander Immer and Hugo Yèche and Gunnar Rätsch and Vincent Fortuin},
-  year          = {2024},
-  archiveprefix = {arXiv},
-  eprint        = {2305.16905},
+@inproceedings{bouchiat2024improving,
+  title     = {Improving {{Neural Additive Models}} with {{Bayesian Principles}}},
+  author    = {Bouchiat, Kouroche and Immer, Alexander and Y\`{e}che, Hugo and Ratsch, Gunnar and Fortuin, Vincent},
+  booktitle = {Proceedings of the 41st International Conference on Machine Learning},
+  pages     = {4416--4443},
+  year      = {2024},
+  publisher = {PMLR},
 }
 ```
