@@ -10,7 +10,8 @@ import torch
 import torch.nn as nn
 from sklearn.inspection._partial_dependence import _grid_from_X as _grid_from_X_sk
 from sklearn.preprocessing import StandardScaler
-from sklearn.utils import _get_column_indices, _safe_indexing, check_matplotlib_support
+from sklearn.utils._indexing import _get_column_indices, _safe_indexing
+from sklearn.utils._optional_dependencies import check_matplotlib_support
 
 from laplace_skorch.classifier import LaplaceAdditiveNetBinaryClassifier
 from laplace_skorch.net import LaplaceNet

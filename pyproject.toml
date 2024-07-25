@@ -10,6 +10,7 @@ dependencies = [
     "numpy >= 1.26, < 2",
     "pandas >= 2.2, < 3",
     "torch >= 2.3, < 3",
+    "scikit-learn >= 1.5, < 2",
     "skorch >= 0.15.0, < 0.16",
     "laplace-torch @ git+https://github.com/AlexImmer/Laplace.git@508843d",
 ]
