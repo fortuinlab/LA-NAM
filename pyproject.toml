@@ -12,7 +12,7 @@ dependencies = [
     "torch >= 2.3, < 3",
     "scikit-learn >= 1.5, < 2",
     "skorch >= 0.15.0, < 0.16",
-    "laplace-torch @ git+https://github.com/AlexImmer/Laplace.git@508843d",
+    "laplace-torch @ git+https://github.com/AlexImmer/Laplace.git@refs/pull/224/head",
 ]
 dynamic = ["version"]
 
