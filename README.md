@@ -27,13 +27,11 @@ It also has generic wrappers for training of models with uncertainty estimation 
 
 ## Installation
 
-The package can be installed directly, ideally within a fresh virtual environment.
-It should be compatible with Python 3.9 and above but was originally developed with Python 3.11.
-PyTorch 2.0 and above is preferred for full compatibility.
-Note that some build-system packages have to be pre-installed for the dependencies.
+The package can be installed directly via Git, ideally within a fresh virtual environment.
+It was written to be compatible with Python 3.11 and above.
+PyTorch 2.0 and above is also preferred for full compatibility.
 
 ```shell
-pip install --upgrade pip wheel packaging  # Needed by `curvlinops`
 pip install git+https://github.com/fortuinlab/LA-NAM.git
 ```
 
