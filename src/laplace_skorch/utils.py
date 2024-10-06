@@ -42,7 +42,7 @@ def log_prob_density(
     scale: float = 1.0,
     reduction: Literal["none", "mean", "sum"] = "mean",
 ) -> float | npt.NDArray[np.floating]:
-    """Log-likelihood of Gaussian distributions (for classification)."""
+    """Log-likelihood of Gaussian distributions (for regression)."""
 
     log_pdf = stats.norm.logpdf(
         np.ravel(y_true) * scale, np.ravel(y_mean) * scale, np.ravel(y_std) * scale
@@ -77,7 +77,7 @@ def log_prob_mass(
     *,
     reduction: Literal["none", "mean", "sum"] = "mean",
 ) -> float | npt.NDArray[np.floating]:
-    """Log-likelihood of categorical distributions (for regression)."""
+    """Log-likelihood of categorical distributions (for classification)."""
 
     num_samples, num_classes = np.shape(y_prob)
 
