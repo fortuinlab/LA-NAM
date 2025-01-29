@@ -245,7 +245,7 @@ class LaplaceAdditiveNetRegressor(LaplaceAdditiveNetMixin, LaplaceNetRegressor):
 
         if not isinstance(X, pd.DataFrame):
             X = pd.DataFrame(X, copy=False)  # type: ignore[arg-type]
-        X = self.column_transformer_.fit_transform(X).astype(np.float32)
+        X = self.column_transformer_.transform(X).astype(np.float32)
 
         if return_std:
             y_pred, y_std = super().predict(X, return_std=True)

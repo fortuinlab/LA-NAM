@@ -200,7 +200,7 @@ class LaplaceAdditiveNetBinaryClassifier(LaplaceAdditiveNetMixin, LaplaceNetClas
     ) -> npt.NDArray[np.floating]:
         if not isinstance(X, pd.DataFrame):
             X = pd.DataFrame(X, copy=False)  # type: ignore[arg-type]
-        X = self.column_transformer_.fit_transform(X).astype(np.float32)
+        X = self.column_transformer_.transform(X).astype(np.float32)
 
         return super().predict_proba(X, use_probit=use_probit, num_samples=num_samples)
 
